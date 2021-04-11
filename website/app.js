@@ -22,21 +22,21 @@ function handleGenerateBtnClick(e) {
     const newzip = document.getElementById('zip').value; //to get zip value
     const feelings = document.getElementById('feelings').value; //to get feeling value
 
-    if(!newzip || !feelings){
+    if (!newzip || !feelings) {
         alert("zipcode and feelings should not be empty");
-       }
-
+    }
+   
     else {
         getTheWeather(baseURL, newzip, apiKey)
-        .then(function (data) {
-         postData("/add", {date: newDate, temp: data.main.temp, content: feelings});
-       })    //wait untill get the data then post the data then update UI
-        .then(() => {
-         updateUI();
-       })
-      }
-
+            .then(function (data) {
+                postData("/add", { date: newDate, temp: data.main.temp, content: feelings });
+            })    //wait untill get the data then post the data then update UI
+            .then(() => {
+                updateUI();
+            })
     }
+
+}
 const getTheWeather = async (baseURL, zip, apikey) => {
     const request = await fetch(baseURL + zip + apikey) //fetch to call the webAPI
 
@@ -56,7 +56,7 @@ const postData = async (url = '', data = {}) => { //will use url of post route i
 
     const response = await fetch(url, {
         method: 'POST', // *GET, POST, PUT, DELETE, etc.
-        credentials: 'same-origin',
+        credentials: 'same-origin', // to send data on the same server
         headers: {
             'Content-Type': 'application/json',
         },
