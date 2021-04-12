@@ -8,7 +8,7 @@ let newDate = d.getMonth() + 1 + '.' + d.getDate() + '.' + d.getFullYear();
 //and the base url to create global variables at the top of your app.js code.
 
 const baseURL = 'http://api.openweathermap.org/data/2.5/weather?zip=';
-const apiKey = '&appid=3983a52235909fea85fedf26dfe90e89&units=imperial';
+const apiKey = '&appid=3983a52235909fea85fedf26dfe90e89&units=imperial'; //unit conversion
 
 //In the file app.js, the element with the id of generate should have 
 //an addEventListener() method called on it, with click as the first parameter, 
